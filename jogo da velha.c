@@ -21,3 +21,23 @@ int main(void)
 
     return 0;
 }
+
+void jogo ( void )
+{
+    char tabuleiro[3][3];
+    int i,j;
+    int controle;
+    
+    void mostrarTabuleiro( char tabuleiro[3][3] );
+    void jogada ( char tabuleiro[3][3], int lJogada, int cJogada );
+    void jogadaPC ( char tabuleiro[3][3] );
+
+    for ( i = 0; i < LINHA; i++ )
+    {
+        for ( j = 0; j < COLUNA; j++ )
+        {
+            tabuleiro[i][j] = ' ';
+        }
+    }
+
+}
