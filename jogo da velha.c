@@ -44,7 +44,6 @@ void jogo ( void )
 
     while ( controle == 0 )
     {
-        mostrarTabuleiro(tabuleiro);
         jogada(tabuleiro);
         jogadaPC(tabuleiro);
         mostrarTabuleiro(tabuleiro);
@@ -127,137 +126,12 @@ void jogadaPC ( char tabuleiro[3][3] )
 
 void verificaVencedor ( char tabuleiro[3][3], int *controleJogo )
 {
-    int i,j;
-    int verificaEmpate = 0;
-    int verificaTabuleiro[3][3];
-    int linha1 = 0,linha2 = 0,linha3 = 0,coluna1 = 0,coluna2 = 0,coluna3 = 0;
-
-    for ( i = 0; i < LINHA; i++ )
+    
+    if (( tabuleiro[0][0] == 'X')&&( tabuleiro[0][1] == 'X' )&&( tabuleiro[0][2] == 'X' ))
     {
-        for ( j = 0; j < COLUNA; j++ )
-        {
-            if ( tabuleiro[i][j] == 'X' )
-            {
-                verificaTabuleiro[i][j] = 1;
-            }
-            else if ( tabuleiro[i][j] == 'O' )
-            {
-                verificaTabuleiro[i][j] = 0;
-            }
-        }
+        printf("\n - Você venceu! ");
+        *controleJogo = 1;
     }
-
-    for ( i = 0; i < LINHA; i++ )
-    {
-        linha1 = linha1 + tabuleiro[0][i];
-
-        if ( linha1 == 3 )
-        {
-            printf("\n - Você venceu! ");
-            *controleJogo = 1;
-            break;
-        }
-        else if ( linha1 == 0 )
-        {
-            printf("\n - Você perdeu! ");
-            *controleJogo = 1;
-            break;
-        }
-
-        linha2 = linha2 + tabuleiro[1][i];
-
-        if ( linha2 == 3 )
-        {
-            printf("\n - Você venceu! ");
-            *controleJogo = 1;
-            break;
-        }
-        else if ( linha2 == 0 )
-        {
-            printf("\n - Você perdeu! ");
-            *controleJogo = 1;
-            break;
-        }
-
-        linha3 = linha3 + tabuleiro[2][i];
-
-        if ( linha3 == 3 )
-        {
-            printf("\n - Você venceu! ");
-            *controleJogo = 1;
-            break;
-        }
-        else if ( linha3 == 0 )
-        {
-            printf("\n - Você perdeu! ");
-            *controleJogo = 1;
-            break;
-        }
-
-        coluna1 = coluna1 + tabuleiro[i][0];
-
-        if ( coluna1 == 3 )
-        {
-            printf("\n - Você venceu! ");
-            *controleJogo = 1;
-            break;
-        }
-        else if ( coluna1 == 0 )
-        {
-            printf("\n - Você perdeu! ");
-            *controleJogo = 1;
-            break;
-        }
-
-        coluna2 = coluna2 + tabuleiro[i][1];
-
-        if ( coluna2 == 3 )
-        {
-            printf("\n - Você venceu! ");
-            *controleJogo = 1;
-            break;
-        }
-        else if ( coluna2 == 0 )
-        {
-            printf("\n - Você perdeu! ");
-            *controleJogo = 1;
-            break;
-        }
-
-        coluna3 = coluna3 + tabuleiro[i][2];
-
-        if ( coluna3 == 3 )
-        {
-            printf("\n - Você venceu! ");
-            *controleJogo = 1;
-            break;
-        }
-        else if ( coluna3 == 0 )
-        {
-            printf("\n - Você perdeu! ");
-            *controleJogo = 1;
-            break;
-        }
-    }
-
-    for ( i = 0; i < LINHA; i++ )
-    {
-        for ( j = 0; j < COLUNA; j++ )
-        {
-            if ( tabuleiro[i][j] != ' ' )
-            {
-                verificaEmpate++;
-
-                if ( verificaEmpate == 9 )
-                {
-                    printf("\n - O jogo empatou!");
-                    *controleJogo = 1;
-                    break;
-                }
-            }
-        }
-    }
-
 
 }
 
