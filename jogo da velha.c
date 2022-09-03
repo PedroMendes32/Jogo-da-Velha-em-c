@@ -26,10 +26,10 @@ void jogo ( void )
 {
     char tabuleiro[3][3];
     int i,j;
-    int controle;
+    int controle = 0;
     
     void mostrarTabuleiro( char tabuleiro[3][3] );
-    void jogada ( char tabuleiro[3][3], int lJogada, int cJogada );
+    void jogada ( char tabuleiro[3][3]);
     void jogadaPC ( char tabuleiro[3][3] );
 
     for ( i = 0; i < LINHA; i++ )
@@ -40,4 +40,26 @@ void jogo ( void )
         }
     }
 
+    while ( controle == 0 )
+    {
+        mostrarTabuleiro(tabuleiro);
+        jogada(tabuleiro);
+        jogadaPC(tabuleiro);
+        mostrarTabuleiro(tabuleiro);
+    }
 }
+
+void mostrarTabuleiro ( char tabuleiro[3][3] )
+{
+    int i,j;
+
+    for ( i = 0; i < LINHA; i++ )
+    {
+        printf("\n");
+        for ( j = 0; j < COLUNA; j++ )
+        {
+            printf(" %c ",tabuleiro[i][j]);
+        }
+    }
+}
+
