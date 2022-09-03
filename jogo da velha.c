@@ -2,8 +2,8 @@
 #include<stdlib.h>
 #include<locale.h>
 #include<time.h>
-#define linha 3;
-#define coluna 3;
+#define LINHA 3
+#define COLUNA 3
 
 void jogo (void);
 
@@ -147,7 +147,7 @@ void verificaVencedor ( char tabuleiro[3][3], int *controleJogo )
         }
     }
 
-    for ( i = 0; i < linha; i++ )
+    for ( i = 0; i < LINHA; i++ )
     {
         linha1 = linha1 + tabuleiro[0][i];
 
