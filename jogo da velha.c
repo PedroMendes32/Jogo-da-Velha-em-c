@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<locale.h>
+#include<time.h>
 #define linha 3;
 #define coluna 3;
 
@@ -91,5 +92,34 @@ void jogada ( char tabuleiro[3][3] )
     }
 
     tabuleiro[linha][coluna] = 'X';
+}
+
+void jogadaPC ( char tabuleiro[3][3] )
+{
+    int linha,coluna;
+    int verificaJogada = 0;
+
+    srand(time(NULL));
+
+    while ( verificaJogada == 0 )
+    {
+        linha = rand() % 3;
+        coluna = rand() % 3;
+
+        if ( tabuleiro[linha][coluna] == 'X' )
+        {
+            verificaJogada = 0;
+        }
+        else if ( tabuleiro[linha][coluna] == 'O')
+        {
+            verificaJogada = 0;
+        }
+        else
+        {
+            verificaJogada = 1;
+        }
+    }
+
+    tabuleiro[linha][coluna] = 'O';
 }
 
