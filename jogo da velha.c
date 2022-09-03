@@ -63,3 +63,33 @@ void mostrarTabuleiro ( char tabuleiro[3][3] )
     }
 }
 
+void jogada ( char tabuleiro[3][3] )
+{
+    int linha;
+    int coluna;
+    int verificaJogada = 0;
+
+    while ( verificaJogada == 0 )
+    {
+        printf("\n - Digite a linha da sua jogada: ");
+        scanf("%d",&linha);
+        printf("\n - Digite a coluna da sua jogada: ");
+        scanf("%d",&coluna);
+
+        if ( tabuleiro[linha][coluna] == 'X' )
+        {
+            printf("\n - Você já ocupou essa casa! ");
+        }
+        else if ( tabuleiro[linha][coluna] == 'O' )
+        {
+            printf("\n - Essa casa está ocupada! ");
+        }
+        else
+        {
+            verificaJogada = 1;
+        }
+    }
+
+    tabuleiro[linha][coluna] = 'X';
+}
+
