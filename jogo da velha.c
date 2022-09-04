@@ -12,11 +12,9 @@ int main(void)
 
     setlocale( LC_ALL, "Portuguese" );
 
-    printf("\n JOGO DA VELHA EM C");
-    printf("\n--------------------");
-
     jogo();
 
+    printf("\n\n FIM DE JOGO! ");
     printf("\n\n\n");
     system("pause");
 
@@ -38,17 +36,37 @@ void jogo ( void )
     {
         for ( j = 0; j < COLUNA; j++ )
         {
-            tabuleiro[i][j] = ' ';
+            tabuleiro[i][j] = '_';
         }
     }
 
     while ( controle == 0 )
-    {
-        jogada(tabuleiro);
-        jogadaPC(tabuleiro);
-        printf("\n\n");
+    {   
+        printf("\n JOGO DA VELHA EM C");
+        printf("\n--------------------");
         mostrarTabuleiro(tabuleiro);
+        printf("\n\n");
+        jogada(tabuleiro);
         verificaVencedor(tabuleiro,&controle);
+        
+        if ( controle == 1 )
+        {
+            mostrarTabuleiro(tabuleiro);
+            break;
+        }
+        else
+        {
+            jogadaPC(tabuleiro);
+            verificaVencedor(tabuleiro);
+
+            if ( controle == 1)
+            {
+                mostrarTabuleiro(tabuleiro);
+                break;
+            }
+        }
+
+        system("cls");
     }
 }
 
@@ -81,11 +99,11 @@ void jogada ( char tabuleiro[3][3] )
 
         if ( tabuleiro[linha][coluna] == 'X' )
         {
-            printf("\n - Você já ocupou essa casa! ");
+            printf("\n - Você já ocupou essa casa! \n");
         }
         else if ( tabuleiro[linha][coluna] == 'O' )
         {
-            printf("\n - Essa casa está ocupada! ");
+            printf("\n - Essa casa está ocupada! \n");
         }
         else
         {
@@ -218,7 +236,7 @@ void verificaVencedor ( char tabuleiro[3][3], int *controleJogo )
         {
             for ( j = 0; j < COLUNA; j++ )
             {
-                if ( tabuleiro[i][j] != ' ' )
+                if ( tabuleiro[i][j] != '_' )
                 {
                     verificaEmpate++;
 
