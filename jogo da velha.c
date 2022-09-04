@@ -46,6 +46,7 @@ void jogo ( void )
     {
         jogada(tabuleiro);
         jogadaPC(tabuleiro);
+        printf("\n\n");
         mostrarTabuleiro(tabuleiro);
         verificaVencedor(tabuleiro,&controle);
     }
@@ -126,12 +127,109 @@ void jogadaPC ( char tabuleiro[3][3] )
 
 void verificaVencedor ( char tabuleiro[3][3], int *controleJogo )
 {
-    
+    int verificaEmpate = 0;
+    int i,j;
+
     if (( tabuleiro[0][0] == 'X')&&( tabuleiro[0][1] == 'X' )&&( tabuleiro[0][2] == 'X' ))
     {
         printf("\n - Você venceu! ");
         *controleJogo = 1;
     }
+    else if ((tabuleiro[1][0] == 'X')&&( tabuleiro[1][1] == 'X' )&&( tabuleiro[1][2] == 'X'))
+    {
+        printf("\n - Você venceu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[2][0] == 'X')&&( tabuleiro[2][1] == 'X' )&&( tabuleiro[2][2] == 'X'))
+    {
+        printf("\n - Você venceu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[0][0] == 'X')&&( tabuleiro[1][0] == 'X' )&&( tabuleiro[2][0] == 'X'))
+    {
+        printf("\n - Você venceu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[0][1] == 'X')&&( tabuleiro[1][1] == 'X' )&&( tabuleiro[2][1] == 'X'))
+    {
+        printf("\n - Você venceu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[0][2] == 'X')&&( tabuleiro[1][2] == 'X' )&&( tabuleiro[2][2] == 'X'))
+    {
+        printf("\n - Você venceu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[0][0] == 'X')&&( tabuleiro[1][1] == 'X' )&&( tabuleiro[2][2] == 'X'))
+    {
+        printf("\n - Você venceu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[2][0] == 'X')&&( tabuleiro[1][1] == 'X' )&&( tabuleiro[0][2] == 'X'))
+    {
+        printf("\n - Você venceu! ");
+        *controleJogo = 1;
+    }
+    //verifica jogadas do computador//
 
+    else if (( tabuleiro[0][0] == 'O')&&( tabuleiro[0][1] == 'O' )&&( tabuleiro[0][2] == 'O' ))
+    {
+        printf("\n - Você perdeu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[1][0] == 'O')&&( tabuleiro[1][1] == 'O' )&&( tabuleiro[1][2] == 'O'))
+    {
+        printf("\n - Você perdeu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[2][0] == 'O')&&( tabuleiro[2][1] == 'O' )&&( tabuleiro[2][2] == 'O'))
+    {
+        printf("\n - Você perdeu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[0][0] == 'O')&&( tabuleiro[1][0] == 'O' )&&( tabuleiro[2][0] == 'O'))
+    {
+        printf("\n - Você perdeu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[0][1] == 'O')&&( tabuleiro[1][1] == 'O' )&&( tabuleiro[2][1] == 'O'))
+    {
+        printf("\n - Você perdeu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[0][2] == 'O')&&( tabuleiro[1][2] == 'O' )&&( tabuleiro[2][2] == 'O'))
+    {
+        printf("\n - Você perdeu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[0][0] == 'O')&&( tabuleiro[1][1] == 'O' )&&( tabuleiro[2][2] == 'O'))
+    {
+        printf("\n - Você perdeu! ");
+        *controleJogo = 1;
+    }
+    else if ((tabuleiro[2][0] == 'O')&&( tabuleiro[1][1] == 'O' )&&( tabuleiro[0][2] == 'O'))
+    {
+        printf("\n - Você perdeu! ");
+        *controleJogo = 1;
+    }
+    else
+    {
+        for ( i = 0; i < LINHA; i++ )
+        {
+            for ( j = 0; j < COLUNA; j++ )
+            {
+                if ( tabuleiro[i][j] != ' ' )
+                {
+                    verificaEmpate++;
+
+                    if ( verificaEmpate == 9 )
+                    {
+                        printf("\n - O jogo empatou! ");
+                        *controleJogo = 1;
+                    }
+                }
+            }
+        }
+    }
 }
 
