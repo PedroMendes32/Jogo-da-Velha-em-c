@@ -57,7 +57,7 @@ void jogo ( void )
         else
         {
             jogadaPC(tabuleiro);
-            verificaVencedor(tabuleiro);
+            verificaVencedor(tabuleiro,&controle);
 
             if ( controle == 1)
             {
